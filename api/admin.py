@@ -27,6 +27,9 @@ class FeedbackAdmin(admin.ModelAdmin):
 class OrderAdmin(admin.ModelAdmin):
     list_display = ['id', 'name', 'email', 'message', 'created_at']
 
+class GameAdmin(admin.ModelAdmin):
+    list_display = ['id', 'title', 'description', 'image', 'created_at', 'updated_at', 'likes', 'comments']
+
 class NotificationAdmin(admin.ModelAdmin):
     list_display = ["user","post","type","seen",]
 
@@ -39,3 +42,4 @@ admin.site.register(api_models.Notification, NotificationAdmin)
 admin.site.register(api_models.Bookmark, BookmarkAdmin)
 admin.site.register(api_models.Feedback, FeedbackAdmin)
 admin.site.register(api_models.Order, OrderAdmin)
+admin.site.register(api_models.Game, GameAdmin)

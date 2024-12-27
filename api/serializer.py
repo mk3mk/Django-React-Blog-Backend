@@ -6,7 +6,7 @@ from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 
 from api import models as api_models
 
-from .models import Feedback, Order
+from .models import Feedback, Order, Game
 
 # Define a custom serializer that inherits from TokenObtainPairSerializer
 class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
@@ -207,3 +207,9 @@ class OrderSerializer(serializers.ModelSerializer):
     class Meta:
         model = Order
         fields = ['id', 'name', 'email', 'message', 'created_at']
+
+
+class GameSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Game
+        fields = '__all__'

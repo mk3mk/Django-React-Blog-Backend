@@ -1,6 +1,7 @@
 from django.urls import path
 from rest_framework_simplejwt.views import TokenRefreshView
 from api import views as api_views
+from .views import GameAPIView
 
 urlpatterns = [
     # Userauths API Endpoints
@@ -34,6 +35,9 @@ urlpatterns = [
     path('feedbacks/<int:pk>/', api_views.FeedbackDetail.as_view()),
     path('orders/', api_views.OrderList.as_view()),
     path('orders/<int:pk>/', api_views.OrderDetail.as_view()),
+
+    path('games/', GameAPIView.as_view(), name='game-list'),
+    path('games/<int:pk>/', GameAPIView.as_view(), name='game-detail'),
 
 
 ]

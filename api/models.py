@@ -183,3 +183,16 @@ class Order(models.Model):
 
     def __str__(self):
         return f"Feedback from {self.name} at {self.created_at}"
+
+
+class Game(models.Model):
+    title = models.CharField(max_length=255)
+    description = models.TextField()
+    image = models.ImageField(upload_to='images/')
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    likes = models.IntegerField(default=0)
+    comments = models.IntegerField(default=0)
+
+    def __str__(self):
+        return self.title
