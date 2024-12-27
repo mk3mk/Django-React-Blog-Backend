@@ -194,6 +194,12 @@ class Game(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     likes = models.IntegerField(default=0)
     comments = models.IntegerField(default=0)
+    slug = models.SlugField(unique=True, null=True, blank=True)
 
     def __str__(self):
         return self.title
+    
+    def save(self, *args, **kwargs):
+        if self.slug == "" or self.slug == None:
+            self.slug = slugify(self.title) + "-" + shortuuid.uuid()[:2]
+        super(Game, self).save(*args, **kwargs)

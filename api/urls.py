@@ -37,7 +37,7 @@ urlpatterns = [
     path('orders/<int:pk>/', api_views.OrderDetail.as_view()),
 
     path('games/', GameAPIView.as_view(), name='game-list'),
-    path('games/<int:pk>/', GameAPIView.as_view(), name='game-detail'),
+    path('games/<slug>/', GameAPIView.as_view(), name='game-detail'),
 
 
 ]

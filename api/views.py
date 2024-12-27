@@ -481,6 +481,7 @@ class OrderDetail(generics.RetrieveUpdateDestroyAPIView):
 
 class GameAPIView(APIView):
     def get(self, request):
+        slug = self.kwargs['slug']
         games = Game.objects.all()
         serializer = GameSerializer(games, many=True)
         return Response(serializer.data)
