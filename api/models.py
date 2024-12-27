@@ -37,6 +37,7 @@ class Profile(models.Model):
     about = models.TextField(null=True, blank=True)
     author = models.BooleanField(default=False)
     country = models.CharField(max_length=100, null=True, blank=True)
+    sity = models.CharField(max_length=100, null=True, blank=True)
     facebook = models.CharField(max_length=100, null=True, blank=True)
     twitter = models.CharField(max_length=100, null=True, blank=True)
     date = models.DateTimeField(auto_now_add=True)
